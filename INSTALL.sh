@@ -18,15 +18,18 @@ fi
 
 
 # Install systemd service file if applicable for this system
-if test ! -e "${SYSCONFDIR}/systemd/system/radio-button.service"; then :
-	cp radio-button.service ${systemdsystemlibdir};
+if test ! -e "${systemdsystemlibdir}/radio-button.service"; then :
+	cp radio-button.service ${systemdsystemlibdir}
+	systemctl daemon-reload
 	echo "radio-button.service created"
 else
 	echo "radio-button.service already exists"
 fi
 if test -e "${systemdsystemlibdir}/radio-button.service" && test ! -e "${systemdsystemetcdir}/multi-user.target.wants/radio-button.service"; then :
-	${SYSTEMCTL} enable radio-button.service;
+	${SYSTEMCTL} enable radio-button.service
 	echo "Service enabled"
+else
+	echo "Service already enabled"
 fi
 
 ${SYSTEMCTL} restart radio-button.service
