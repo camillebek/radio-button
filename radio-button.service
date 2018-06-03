@@ -1,0 +1,17 @@
+[Unit]
+Description=Connect a button on your raspberry pi to play radio
+After=sound.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/local/bin/radio-button
+Restart=on-failure
+
+# Configures the time to wait before service is stopped forcefully.
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

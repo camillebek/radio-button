@@ -43,7 +43,7 @@ def kill_program(programName, sig=signal.SIGTERM):
     """
     To kill a program and its children by its name
     """
-    cmd = ['ps', 'a', '--noheaders']
+    cmd = ['ps', 'aux', '--noheaders']
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
     ps_output = proc.stdout.readlines()
     p = re.compile(r'%s' % programName)
@@ -51,7 +51,7 @@ def kill_program(programName, sig=signal.SIGTERM):
         nbOcc = len(p.findall(str(i)))
         if nbOcc > 0:
             for j in str(i)[2:].split(' '):
-                if (j != '') and (j != "b'"):
+                if (j != '') and (j != "b'") and (j != 'root'):
                     print("Ending process %s" % j)
                     pid = int(j)
                     os.kill(pid, sig)
