@@ -1,6 +1,6 @@
 # radio-button
 
-_**Add a button on your raspberry pi to play radio**_
+_**Connect a button on your raspberry pi to play radio**_
 
 ## Installation
 
