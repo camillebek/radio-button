@@ -2,7 +2,7 @@
 
 _**Connect a button on your raspberry pi to play radio**_
 
-![Radio button](/button.png | width=60)
+![Radio button](/button.png)
 
 ## Installation
 
