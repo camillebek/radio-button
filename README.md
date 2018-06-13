@@ -1,6 +1,6 @@
 # radio-button
 
-_**Connect a button on your raspberry pi to play radio**_
+_**Connect a button to your raspberry pi to play radio**_
 
 ![Radio button](/button.png)
 
